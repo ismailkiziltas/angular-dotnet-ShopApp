@@ -1,0 +1,16 @@
+# .NET
+**/bin/
+**/obj/
+*.user
+
+# Angular
+**/node_modules/
+**/.angular/cache/
+
+# IDE
+.idea/
+.vs/
+*.suo
+
+# Hassas dosyalar
+appsettings.Development.json

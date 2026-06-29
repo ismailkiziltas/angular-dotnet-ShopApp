@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net10.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <RootNamespace>ShopApp.Bussiness</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\ShopApp.Core\ShopApp.Core.csproj" />
+      <ProjectReference Include="..\ShopApp.DataAccess\ShopApp.DataAccess.csproj" />
+    </ItemGroup>
+
+</Project>
