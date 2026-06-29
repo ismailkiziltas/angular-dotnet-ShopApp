@@ -1,0 +1,13 @@
+<div class="product-list-container">
+  <h2>Ürünler</h2>
+
+  <div class="product-grid">
+    <div class="product-card" *ngFor="let product of products">
+      <img [src]="product.imageUrl || 'https://via.placeholder.com/200'" [alt]="product.name" />
+      <h3>{{ product.name }}</h3>
+      <p>{{ product.description }}</p>
+      <span class="price">{{ product.price | currency:'TRY':'symbol':'1.2-2' }}</span>
+      <a [routerLink]="['/products', product.id]">Detay</a>
+    </div>
+  </div>
+</div>

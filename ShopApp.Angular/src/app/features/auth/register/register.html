@@ -1,0 +1,29 @@
+<div class="register-container">
+  <h2>Kayıt Ol</h2>
+
+  <form (ngSubmit)="onSubmit()">
+    <div>
+      <label>Ad</label>
+      <input type="text" [(ngModel)]="firstName" name="firstName" required />
+    </div>
+
+    <div>
+      <label>Soyad</label>
+      <input type="text" [(ngModel)]="lastName" name="lastName" required />
+    </div>
+
+    <div>
+      <label>Email</label>
+      <input type="email" [(ngModel)]="email" name="email" required />
+    </div>
+
+    <div>
+      <label>Şifre</label>
+      <input type="password" [(ngModel)]="password" name="password" required />
+    </div>
+
+    <button type="submit">Kayıt Ol</button>
+  </form>
+
+  <p>Zaten hesabın var mı? <a routerLink="/login">Giriş Yap</a></p>
+</div>

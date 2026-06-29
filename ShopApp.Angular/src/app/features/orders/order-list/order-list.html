@@ -1,0 +1,30 @@
+<div class="order-list-container">
+  <h2>Siparişlerim</h2>
+
+  @if (orders.length === 0) {
+    <p>Henüz siparişiniz yok.</p>
+  }
+
+  @for (order of orders; track order.id) {
+    <div class="order-card">
+      <div class="order-header">
+        <span>Sipariş #{{ order.id }}</span>
+        <span>{{ order.orderDate | date:'dd.MM.yyyy' }}</span>
+        <span class="status">{{ order.status === 0 ? 'Beklemede' : order.status === 1 ? 'Onaylandı' : order.status === 2 ? 'Kargoda' : order.status === 3 ? 'Teslim Edildi' : 'İptal' }}</span>
+        <span class="total">{{ order.totalPrice | currency:'TRY':'symbol':'1.2-2' }}</span>
+      </div>
+
+      <div class="order-items">
+        @for (item of order.orderItems; track item.productId) {
+          <div class="order-item">
+            <span>{{ item.product.name }}</span>
+            <span>{{ item.quantity }} adet</span>
+            <span>{{ item.unitPrice | currency:'TRY':'symbol':'1.2-2' }}</span>
+          </div>
+        }
+      </div>
+
+      <p class="address">Adres: {{ order.address }}</p>
+    </div>
+  }
+</div>

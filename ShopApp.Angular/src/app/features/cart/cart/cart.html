@@ -1,0 +1,29 @@
+<div class="cart-container">
+  <h2>Sepetim</h2>
+
+  @if (cartItems.length === 0) {
+    <p>Sepetiniz boş.</p>
+  }
+
+  @if (cartItems.length > 0) {
+    @for (item of cartItems; track item.id) {
+      <div class="cart-item">
+        <div class="item-info">
+          <h3>{{ item.product.name }}</h3>
+          <p>Adet: {{ item.quantity }}</p>
+          <span>{{ item.product.price | currency:'TRY':'symbol':'1.2-2' }}</span>
+        </div>
+        <button (click)="removeItem(item.id)">Kaldır</button>
+      </div>
+    }
+
+    <div class="cart-summary">
+      <h3>Toplam: {{ totalPrice | currency:'TRY':'symbol':'1.2-2' }}</h3>
+      <div class="address">
+        <label>Teslimat Adresi:</label>
+        <textarea [(ngModel)]="address" rows="3" placeholder="Adresinizi girin..."></textarea>
+      </div>
+      <button (click)="placeOrder()">Siparişi Tamamla</button>
+    </div>
+  }
+</div>

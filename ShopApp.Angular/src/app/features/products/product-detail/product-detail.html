@@ -1,0 +1,22 @@
+<div class="product-detail-container" *ngIf="product">
+  <div>
+    <img [src]="product.imageUrl" [alt]="product.name" />
+
+    <div class="product-info">
+      <h2>{{ product.name }}</h2>
+      <p>{{ product.description }}</p>
+      <span class="price">{{ product.price | currency: 'TRY' : 'symbol' : '1.2-2' }}</span>
+      <p>Stok: {{ product.stock }}</p>
+
+      <div class="quantity">
+        <label>Adet:</label>
+        <input type="number" [(ngModel)]="quantity" min="1" [max]="product.stock" />
+      </div>
+
+      <button (click)="addToCart()">Sepete Ekle</button>
+      @if (errorMessage) {
+        <p style="color: red">{{ errorMessage }}</p>
+      }
+    </div>
+  </div>
+</div>

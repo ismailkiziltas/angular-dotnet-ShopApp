@@ -1,0 +1,14 @@
+<nav>
+  <a href="/products">Ürünler</a>
+  
+  @if (authService.isLoggedIn()) {
+    <a routerLink="/cart">Sepet</a>
+    <a routerLink="/orders">Siparişlerim</a>
+    <button (click)="logout()">Çıkış</button>
+  } @else {
+    <a routerLink="/login">Giriş</a>
+    <a routerLink="/register">Kayıt Ol</a>
+  }
+</nav>
+
+<router-outlet />
